@@ -1,20 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Blockchain
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-        public Form1()
+        private Chain _chain = new Chain();
+
+        public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void addBlockBtn_Click(object sender, EventArgs e)
+        {
+            outputDataListBox.Items.Clear();
+
+            _chain.Add(inputDataBox.Text, "Admin");
+
+            foreach (var block in _chain.Blocks)
+            {
+                outputDataListBox.Items.Add(block.ToString());
+            }
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            foreach(var block in _chain.Blocks)
+            {
+                outputDataListBox.Items.Add(block.ToString());
+            }
         }
     }
 }

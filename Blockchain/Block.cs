@@ -54,6 +54,11 @@ namespace Blockchain
             return result;
         }
 
+        public override string ToString()
+        {
+            return Data;
+        }
+
         private string GetHash(string data)
         {
             var crypt = new SHA256Managed();
