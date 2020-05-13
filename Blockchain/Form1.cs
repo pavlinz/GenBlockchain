@@ -18,18 +18,12 @@ namespace Blockchain
 
             _chain.Add(inputDataBox.Text, "Admin");
 
-            foreach (var block in _chain.Blocks)
-            {
-                outputDataListBox.Items.Add(block.ToString());
-            }
+            outputDataListBox.Items.AddRange(_chain.Blocks.ToArray());
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            foreach(var block in _chain.Blocks)
-            {
-                outputDataListBox.Items.Add(block.ToString());
-            }
+            outputDataListBox.Items.AddRange(_chain.Blocks.ToArray());
         }
     }
 }

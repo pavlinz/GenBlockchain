@@ -50,7 +50,7 @@ namespace Blockchain
         private string GetData()
         {
             string result = "";
-            result = Id.ToString() + Data + Created.ToString("dd.MM.yyyy HH:mm:ss:fff") + PreviousHash + User;
+            result = Data + Created.ToString("dd.MM.yyyy HH:mm:ss:fff") + PreviousHash + User;
             return result;
         }
 
@@ -59,7 +59,7 @@ namespace Blockchain
             return Data;
         }
 
-        private string GetHash(string data)
+        public string GetHash(string data)
         {
             var crypt = new SHA256Managed();
             string hash = String.Empty;
