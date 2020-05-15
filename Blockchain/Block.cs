@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Runtime.Serialization.Json;
+
 
 namespace Blockchain
 {
     // Block data of our chain
+    [DataContract]
     public class Block
     {
         public int Id { get; private set; }
@@ -69,6 +72,12 @@ namespace Blockchain
                 hash += theByte.ToString("x2");
             }
             return hash;
+        }
+
+        private string Serialize()
+        {
+
+            return null;
         }
     }
 }
